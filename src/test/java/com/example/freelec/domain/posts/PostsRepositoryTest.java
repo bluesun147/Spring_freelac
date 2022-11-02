@@ -27,6 +27,7 @@ public class PostsRepositoryTest {
         String title = "게시글";
         String content = "본문";
 
+        // 빌더 패턴 사용 시
         postsRepository.save(Posts.builder()
                         .title(title)
                         .content(content)
