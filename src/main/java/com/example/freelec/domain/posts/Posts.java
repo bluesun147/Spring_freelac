@@ -1,5 +1,6 @@
 package com.example.freelec.domain.posts;
 
+import com.example.freelec.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity { // BaseTimeEntity 상속 (createdTime)
     @Id // 해당 테이블의 PK 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk 생성 규칙,
     private Long id;

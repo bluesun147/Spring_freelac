@@ -15,13 +15,11 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.persistence.PostUpdate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+// webEnvironment 속성은 테스트의 웹 환경 설정 속성
+// 스프링 부트의 내장 서버 랜덤으로 띄우기
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PostApiControllerTest {
     @LocalServerPort
@@ -33,10 +31,10 @@ public class PostApiControllerTest {
     @Autowired
     private PostsRepository postsRepository;
 
-    @AfterEach
-    public void tearDown() throws Exception {
-        postsRepository.deleteAll();
-    }
+//    @AfterEach
+//    public void tearDown() throws Exception {
+//        postsRepository.deleteAll();
+//    }
 
     // 등록 테스트
     @Test
