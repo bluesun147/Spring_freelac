@@ -12,4 +12,9 @@ public class IndexController {
     public String index() {
         return "index"; // src/main/resources/templates/index.mustache 리턴
     }
+
+    @GetMapping("/posts/save")
+    public String postsSave() {
+        return "posts-save";
+    }
 }
