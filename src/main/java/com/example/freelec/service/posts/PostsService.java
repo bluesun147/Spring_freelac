@@ -2,12 +2,16 @@ package com.example.freelec.service.posts;
 
 import com.example.freelec.domain.posts.Posts;
 import com.example.freelec.domain.posts.PostsRepository;
+import com.example.freelec.web.dto.PostsListResponseDto;
 import com.example.freelec.web.dto.PostsResponseDto;
 import com.example.freelec.web.dto.PostsSaveRequestDto;
 import com.example.freelec.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -39,5 +43,16 @@ public class PostsService {
                 new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    // readOnly=true 옵션 주면 트랜잭션 범위는 유지하되 조회 기능만 남겨 조회 속도 개선됨.
+    // 등록, 수정, 삭제 기능 전혀 없는 서비스 메소드에서 사용하는것 추천
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAlLDesc() {
+        return postsRepository.findAllDesc().stream()
+                // .map(PostsListResponseDto.new) // 아래와 같은 코드
+                // postRepository 결과로 넘어온 Posts의 스트림을 map을 통해 dto로 변환 -> List로 반환하는 메서드
+                .map(posts -> new PostsListResponseDto(posts))
+                .collect(Collectors.toList());
     }
 }
