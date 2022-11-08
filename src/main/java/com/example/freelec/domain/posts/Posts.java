@@ -38,6 +38,8 @@ public class Posts extends BaseTimeEntity { // BaseTimeEntity 상속 (createdTim
     Entity가 아니라 다른곳에서 하겠다는 것 역시 잘못된 일이 아닙니다.
     어떻게 하든지 비즈니스 로직을 작성하는 코드가 자연스럽고
     테스트 하기 용이 하다면 어떻게 해도 괜찮습니다."
+
+    ---> set 안쓰려고 엔티티 내에서 쓰는거?
     */
     public void update(String title, String content) {
         this.title = title;
