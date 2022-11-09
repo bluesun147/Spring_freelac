@@ -13,6 +13,4 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> { // <엔티티 클래스, pk 타입>
     // data jpa에서 제공되지 않는 메서드는 퀴리로 작성 가능
     Optional<User> findByEmail(String email); // 이메일 통해 이미 가입한 사용자인지 판단
-
-    //Optional<Object> findByEmail(String email);
 }

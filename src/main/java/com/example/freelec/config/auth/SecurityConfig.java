@@ -29,6 +29,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .oauth2Login()
                 .userInfoEndpoint()
+
                 .userService(customOAuth2UserService);
+    }
+
+    @Override
+    // 기본 로그인 화면 (please sign in) 제거
+    // https://pika-chu.tistory.com/608
+    protected void configure(HttpSecurity httpSecurity) throws Exception{
+        httpSecurity.httpBasic().disable();
     }
 }

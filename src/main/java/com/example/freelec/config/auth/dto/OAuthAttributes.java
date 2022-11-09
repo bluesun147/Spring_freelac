@@ -8,6 +8,7 @@ import lombok.Getter;
 import java.util.Map;
 
 // dto
+
 @Getter
 public class OAuthAttributes {
     private Map<String, Object> attributes;

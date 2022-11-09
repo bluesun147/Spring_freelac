@@ -1,7 +1,5 @@
 package com.example.freelec.domain.posts;
 
-
-import org.aspectj.lang.annotation.After;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -58,9 +56,9 @@ public class PostsRepositoryTest {
         // then
         Posts posts = postsList.get(0);
 
-        System.out.println(">>>>>>>>>>> createdDate = " + posts.getCreatedDate() + ", modifiedDate = " + posts.getModifiedTime());
+        System.out.println(">>>>>>>>>>> createdDate = " + posts.getCreatedDate() + ", modifiedDate = " + posts.getModifiedDate());
 
         Assertions.assertThat(posts.getCreatedDate()).isAfter(now);
-        Assertions.assertThat(posts.getModifiedTime()).isAfter(now);
+        Assertions.assertThat(posts.getModifiedDate()).isAfter(now);
     }
 }
